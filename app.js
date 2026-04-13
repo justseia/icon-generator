@@ -142,6 +142,8 @@
         { name: 'apple-touch-icon.png',    size: 180 },
         { name: 'android-chrome-192x192.png', size: 192 },
         { name: 'android-chrome-512x512.png', size: 512 },
+        { name: 'maskable-icon-192x192.png',  size: 192, maskable: true },
+        { name: 'maskable-icon-512x512.png',  size: 512, maskable: true },
     ];
 
     // ============================================================
@@ -316,8 +318,9 @@
      * Converts the image to a white shape on transparent background.
      * Android system tints this with the user's wallpaper color.
      *
-     * The layer is 108dp (adaptive icon spec). The logo sits in the
-     * center 66dp safe zone with the outer 21dp padding on each side.
+     * The layer is 108dp (adaptive icon spec). The system masks to a
+     * 72dp square visible area (18dp padding each side). Critical content
+     * should stay within the 66dp diameter circular safe zone.
      */
     function createMonochrome(img, layerSize, threshold, invert) {
         const canvas = document.createElement('canvas');
@@ -461,6 +464,99 @@
         return new Promise(resolve => canvas.toBlob(resolve, type));
     }
 
+    /**
+     * Create a maskable icon for PWA.
+     * Safe zone is the inner 80% circle — pad the icon into that area
+     * so launchers can apply any mask shape without clipping content.
+     */
+    function createMaskableIcon(img, size) {
+        const canvas = document.createElement('canvas');
+        canvas.width = size;
+        canvas.height = size;
+        const ctx = canvas.getContext('2d');
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+
+        // Fill with background color (use icon bg color)
+        ctx.fillStyle = iconBgColor.value;
+        ctx.fillRect(0, 0, size, size);
+
+        // Draw icon in the inner 80% safe zone
+        const safeSize = Math.round(size * 0.8);
+        const offset = Math.round((size - safeSize) / 2);
+        ctx.drawImage(img, offset, offset, safeSize, safeSize);
+        return canvas;
+    }
+
+    /**
+     * Build a multi-resolution favicon.ico from PNG canvases.
+     * Uses embedded PNG format (supported by all modern browsers).
+     */
+    async function createIcoBlob(img, sizes) {
+        const pngBuffers = [];
+        for (const size of sizes) {
+            const canvas = resizeToSquare(img, size);
+            const blob = await canvasToBlob(canvas);
+            pngBuffers.push(await blob.arrayBuffer());
+        }
+
+        // ICO header: 6 bytes
+        const headerSize = 6;
+        const dirEntrySize = 16;
+        const dirSize = dirEntrySize * pngBuffers.length;
+        let dataOffset = headerSize + dirSize;
+
+        const totalSize = dataOffset + pngBuffers.reduce((sum, buf) => sum + buf.byteLength, 0);
+        const ico = new ArrayBuffer(totalSize);
+        const view = new DataView(ico);
+
+        // Header
+        view.setUint16(0, 0, true);                    // Reserved
+        view.setUint16(2, 1, true);                    // Type: 1 = ICO
+        view.setUint16(4, pngBuffers.length, true);    // Image count
+
+        // Directory entries + image data
+        for (let i = 0; i < pngBuffers.length; i++) {
+            const buf = pngBuffers[i];
+            const s = sizes[i];
+            const entryOffset = headerSize + i * dirEntrySize;
+
+            view.setUint8(entryOffset, s < 256 ? s : 0);      // Width (0 = 256)
+            view.setUint8(entryOffset + 1, s < 256 ? s : 0);  // Height
+            view.setUint8(entryOffset + 2, 0);                 // Color palette
+            view.setUint8(entryOffset + 3, 0);                 // Reserved
+            view.setUint16(entryOffset + 4, 1, true);          // Color planes
+            view.setUint16(entryOffset + 6, 32, true);         // Bits per pixel
+            view.setUint32(entryOffset + 8, buf.byteLength, true);  // Image size
+            view.setUint32(entryOffset + 12, dataOffset, true);     // Data offset
+
+            new Uint8Array(ico, dataOffset, buf.byteLength).set(new Uint8Array(buf));
+            dataOffset += buf.byteLength;
+        }
+
+        return new Blob([ico], { type: 'image/x-icon' });
+    }
+
+    /**
+     * Build site.webmanifest referencing all web icons.
+     */
+    function buildWebManifest() {
+        const manifest = {
+            name: '',
+            short_name: '',
+            icons: [
+                { src: 'android-chrome-192x192.png', sizes: '192x192', type: 'image/png' },
+                { src: 'android-chrome-512x512.png', sizes: '512x512', type: 'image/png' },
+                { src: 'maskable-icon-192x192.png',  sizes: '192x192', type: 'image/png', purpose: 'maskable' },
+                { src: 'maskable-icon-512x512.png',  sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+            ],
+            theme_color: '#ffffff',
+            background_color: '#ffffff',
+            display: 'standalone',
+        };
+        return JSON.stringify(manifest, null, 2);
+    }
+
     // ============================================================
     //  CONTENTS.JSON for iOS
     // ============================================================
@@ -545,7 +641,7 @@
         if (assets.includes('android-notif'))  total += ANDROID_NOTIFICATION.length;
         if (assets.includes('ios-splash'))     total += IOS_SPLASH.length;
         if (assets.includes('android-splash')) total += ANDROID_SPLASH.length;
-        if (assets.includes('favicon'))        total += FAVICON_SIZES.length;
+        if (assets.includes('favicon'))        total += FAVICON_SIZES.length + 2; // +favicon.ico +manifest
         if (assets.includes('store'))          total += 2;
 
         let done = 0;
@@ -708,12 +804,23 @@
             if (assets.includes('favicon')) {
                 const folder = zip.folder('web');
                 for (const fav of FAVICON_SIZES) {
-                    const canvas = resizeToSquare(sourceImage, fav.size);
+                    const canvas = fav.maskable
+                        ? createMaskableIcon(sourceImage, fav.size)
+                        : resizeToSquare(sourceImage, fav.size);
                     const blob = await canvasToBlob(canvas);
                     folder.file(fav.name, blob);
                     previews.push({ name: fav.name, size: `${fav.size}px`, canvas });
                     tick(fav.name);
                 }
+
+                // favicon.ico (multi-resolution: 16, 32, 48)
+                const icoBlob = await createIcoBlob(sourceImage, [16, 32, 48]);
+                folder.file('favicon.ico', icoBlob);
+                tick('favicon.ico');
+
+                // site.webmanifest
+                folder.file('site.webmanifest', buildWebManifest());
+                tick('site.webmanifest');
             }
 
             // --- Store Icons ---

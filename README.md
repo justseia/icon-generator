@@ -10,9 +10,9 @@ Browser-based tool for generating app icons and splash screens for iOS, Android,
 - **Android Icons** — `mipmap-*` folders with `ic_launcher.png`, `ic_launcher_round.png`, adaptive icon foreground layers, and `ic_launcher.xml`
 - **Android Themed Icons** — monochrome silhouette layers for Material You (Android 13+) with live preview and threshold control
 - **Android Notification Icons** — 24dp white silhouettes for status bar across all densities
-- **iOS Splash Screens** — launch images for all iPhone and iPad sizes (portrait + landscape), including iPhone 16 Pro/Pro Max
-- **Android Splash Screens** — splash images for all density buckets (mdpi through xxxhdpi)
-- **Web Favicons** — `favicon-16x16.png`, `favicon-32x32.png`, `apple-touch-icon.png`, `android-chrome-192x192.png`, `android-chrome-512x512.png`
+- **iOS Splash Screens** *(Legacy)* — launch images for all iPhone and iPad sizes (portrait + landscape). Deprecated since iOS 13 — modern apps should use `LaunchScreen.storyboard`
+- **Android Splash Screens** *(Legacy)* — bitmap splash images for all density buckets. Deprecated since Android 12 — modern apps should use the SplashScreen API
+- **Web Favicons** — `favicon.ico`, `favicon-16/32/48.png`, `apple-touch-icon.png`, `android-chrome-192/512.png`, maskable PWA icons, and `site.webmanifest`
 - **Store Icons** — 1024x1024 for App Store, 512x512 for Play Store
 - **Light/Dark theme colors** — configurable background and icon background colors, exported as `values/colors.xml` and `values-night/colors.xml`
 - **Splash logo scale** — adjustable logo size on splash screens (10%–80%)
@@ -93,12 +93,16 @@ app-assets.zip
 │       └── values-night/
 │           └── colors.xml
 ├── web/
+│   ├── favicon.ico
 │   ├── favicon-16x16.png
 │   ├── favicon-32x32.png
 │   ├── favicon-48x48.png
 │   ├── apple-touch-icon.png
 │   ├── android-chrome-192x192.png
-│   └── android-chrome-512x512.png
+│   ├── android-chrome-512x512.png
+│   ├── maskable-icon-192x192.png
+│   ├── maskable-icon-512x512.png
+│   └── site.webmanifest
 └── store/
     ├── AppStore-1024x1024.png
     └── PlayStore-512x512.png
@@ -149,11 +153,15 @@ app-assets.zip
 | xxhdpi | 72 |
 | xxxhdpi | 96 |
 
-### iOS Splash Screens
+### iOS Splash Screens (Legacy)
+
+> Deprecated since iOS 13. Modern apps should use `LaunchScreen.storyboard` instead of launch images.
 
 Covers iPhone 8 through iPhone 16 Pro Max, iPad, iPad Mini 6, iPad Air 11", iPad Pro 10.5"/11"/12.9"/13" M4 — both portrait and landscape orientations. Full list is in `app.js`.
 
-### Android Splash Screens
+### Android Splash Screens (Legacy)
+
+> Deprecated since Android 12. Modern apps should use the SplashScreen API instead of bitmap splash screens.
 
 | Density | Size (px) |
 |---------|-----------|
