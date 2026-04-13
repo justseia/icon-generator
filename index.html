@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Asset Generator — Icons & Splash for iOS & Android</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <rect width="32" height="32" rx="8" fill="url(#g1)"/>
+                    <path d="M8 16L14 22L24 10" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs><linearGradient id="g1" x1="0" y1="0" x2="32" y2="32"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs>
+                </svg>
+                <h1>App Asset Generator</h1>
+            </div>
+            <p class="subtitle">Generate app icons & splash screens for iOS and Android with correct names and sizes</p>
+        </header>
+
+        <main class="main">
+            <!-- Step 1: Upload -->
+            <section class="card upload-section" id="uploadSection">
+                <div class="step-badge">1</div>
+                <h2>Upload Source Image</h2>
+                <p class="hint">Recommended: 1024x1024 PNG for icons, 1920x1920+ for splash screens</p>
+                <div class="upload-area" id="uploadArea">
+                    <input type="file" id="fileInput" accept="image/*" hidden>
+                    <div class="upload-placeholder" id="uploadPlaceholder">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <path d="M24 32V16M24 16L18 22M24 16L30 22" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M40 28V36C40 38.2091 38.2091 40 36 40H12C9.79086 40 8 38.2091 8 36V28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Drop image here or click to browse</span>
+                    </div>
+                    <div class="upload-preview" id="uploadPreview" hidden>
+                        <img id="previewImg" alt="Preview">
+                        <button class="btn-remove" id="removeBtn" title="Remove image">&times;</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 2: Choose what to generate -->
+            <section class="card options-section" id="optionsSection">
+                <div class="step-badge">2</div>
+                <h2>Choose Assets</h2>
+
+                <div class="options-grid">
+                    <!-- iOS Icons -->
+                    <label class="option-card">
+                        <input type="checkbox" name="asset" value="ios-icons" checked>
+                        <div class="option-content">
+                            <div class="option-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="5" y="2" width="14" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="18" r="1" fill="currentColor"/></svg>
+                            </div>
+                            <div class="option-text">
+                                <strong>iOS Icons</strong>
+                                <span>AppIcon.appiconset with Contents.json</span>
+                            </div>
+                        </div>
+                    </label>
+
+                    <!-- Android Icons -->
+                    <label class="option-card">
+                        <input type="checkbox" name="asset" value="android-icons" checked>
+                        <div class="option-content">
+                            <div class="option-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 16V10C5 6.13 8.13 3 12 3C15.87 3 19 6.13 19 10V16" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="16" width="18" height="5" rx="2" stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="5" x2="6" y2="2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="16" y1="5" x2="18" y2="2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            </div>
+                            <div class="option-text">
+                                <strong>Android Icons</strong>
+                                <span>mipmap folders with ic_launcher & round</span>
+                            </div>
+                        </div>
+                    </label>
+
+                    <!-- iOS Splash -->
+                    <label class="option-card">
+                        <input type="checkbox" name="asset" value="ios-splash" checked>
+                        <div class="option-content">
+                            <div class="option-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/></svg>
+                            </div>
+                            <div class="option-text">
+                                <strong>iOS Splash</strong>
+                                <span>Launch images for all iPhone/iPad sizes</span>
+                            </div>
+                        </div>
+                    </label>
+
+                    <!-- Android Splash -->
+                    <label class="option-card">
+                        <input type="checkbox" name="asset" value="android-splash" checked>
+                        <div class="option-content">
+                            <div class="option-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 8h18M8 8v13" stroke="currentColor" stroke-width="1.5"/></svg>
+                            </div>
+                            <div class="option-text">
+                                <strong>Android Splash</strong>
+                                <span>Splash screens for all densities</span>
+                            </div>
+                        </div>
+                    </label>
+
+                    <!-- Favicon -->
+                    <label class="option-card">
+                        <input type="checkbox" name="asset" value="favicon">
+                        <div class="option-content">
+                            <div class="option-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 3C14 7 14 17 12 21M12 3C10 7 10 17 12 21M3 12h18" stroke="currentColor" stroke-width="1.5"/></svg>
+                            </div>
+                            <div class="option-text">
+                                <strong>Web Favicons</strong>
+                                <span>favicon.ico, apple-touch-icon, etc.</span>
+                            </div>
+                        </div>
+                    </label>
+
+                    <!-- Android Monochrome / Themed Icons -->
+                    <label class="option-card">
+                        <input type="checkbox" name="asset" value="android-mono" checked>
+                        <div class="option-content">
+                            <div class="option-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" fill="currentColor"/></svg>
+                            </div>
+                            <div class="option-text">
+                                <strong>Android Themed</strong>
+                                <span>Monochrome icons for Material You (Android 13+)</span>
+                            </div>
+                        </div>
+                    </label>
+
+                    <!-- Android Notification Icons -->
+                    <label class="option-card">
+                        <input type="checkbox" name="asset" value="android-notif" checked>
+                        <div class="option-content">
+                            <div class="option-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div class="option-text">
+                                <strong>Android Notification</strong>
+                                <span>24dp white silhouette for status bar & notifications</span>
+                            </div>
+                        </div>
+                    </label>
+
+                    <!-- Play Store / App Store -->
+                    <label class="option-card">
+                        <input type="checkbox" name="asset" value="store" checked>
+                        <div class="option-content">
+                            <div class="option-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div class="option-text">
+                                <strong>Store Icons</strong>
+                                <span>1024x1024 (App Store) & 512x512 (Play Store)</span>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- Splash & Theme options -->
+                <div class="splash-options" id="splashOptions">
+                    <h3>Colors & Splash Options</h3>
+                    <div class="splash-config">
+                        <div class="config-group-label">Light Theme</div>
+                        <div class="config-row">
+                            <label for="bgColor">Background</label>
+                            <div class="color-input">
+                                <input type="color" id="bgColor" value="#ffffff">
+                                <input type="text" id="bgColorText" value="#ffffff" maxlength="7">
+                            </div>
+                        </div>
+                        <div class="config-row">
+                            <label for="iconBgColor">Icon Background</label>
+                            <div class="color-input">
+                                <input type="color" id="iconBgColor" value="#ffffff">
+                                <input type="text" id="iconBgColorText" value="#ffffff" maxlength="7">
+                            </div>
+                        </div>
+                        <div class="config-group-label dark">Dark Theme (values-night)</div>
+                        <div class="config-row">
+                            <label for="bgColorDark">Background</label>
+                            <div class="color-input">
+                                <input type="color" id="bgColorDark" value="#121212">
+                                <input type="text" id="bgColorDarkText" value="#121212" maxlength="7">
+                            </div>
+                        </div>
+                        <div class="config-row">
+                            <label for="iconBgColorDark">Icon Background</label>
+                            <div class="color-input">
+                                <input type="color" id="iconBgColorDark" value="#1e1e1e">
+                                <input type="text" id="iconBgColorDarkText" value="#1e1e1e" maxlength="7">
+                            </div>
+                        </div>
+                        <div class="config-group-divider"></div>
+                        <div class="config-row">
+                            <label for="logoScale">Splash Logo Scale</label>
+                            <div class="range-input">
+                                <input type="range" id="logoScale" min="10" max="80" value="30">
+                                <span id="logoScaleValue">30%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Monochrome options -->
+                <div class="splash-options" id="monoOptions">
+                    <h3>Monochrome Icon Options</h3>
+                    <p class="mono-hint">Android 13+ themed icons use a single-color silhouette. The system tints it to match the wallpaper.</p>
+                    <div class="splash-config">
+                        <div class="config-row">
+                            <label for="monoThreshold">Threshold</label>
+                            <div class="range-input">
+                                <input type="range" id="monoThreshold" min="10" max="245" value="128">
+                                <span id="monoThresholdValue">128</span>
+                            </div>
+                        </div>
+                        <div class="config-row">
+                            <label for="monoInvert">Invert (light logo on dark bg)</label>
+                            <input type="checkbox" id="monoInvert" class="toggle-check">
+                        </div>
+                    </div>
+                    <div class="mono-preview-row">
+                        <div class="mono-preview-box" id="monoPreviewBox">
+                            <canvas id="monoPreviewCanvas" width="108" height="108"></canvas>
+                            <span>Monochrome preview</span>
+                        </div>
+                        <div class="mono-preview-box themed">
+                            <canvas id="monoThemedCanvas" width="108" height="108"></canvas>
+                            <span>Themed preview</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 3: Generate -->
+            <section class="card generate-section" id="generateSection">
+                <div class="step-badge">3</div>
+                <h2>Generate & Download</h2>
+                <div class="generate-info" id="generateInfo">
+                    <p>Select assets above and upload an image to generate</p>
+                </div>
+                <button class="btn-generate" id="generateBtn" disabled>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3V13M10 13L6 9M10 13L14 9M3 15V16C3 16.5523 3.44772 17 4 17H16C16.5523 17 17 16.5523 17 16V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>Generate & Download ZIP</span>
+                </button>
+                <div class="progress-bar" id="progressBar" hidden>
+                    <div class="progress-fill" id="progressFill"></div>
+                    <span class="progress-text" id="progressText">Generating...</span>
+                </div>
+            </section>
+
+            <!-- Preview -->
+            <section class="card preview-section" id="previewSection" hidden>
+                <h2>Preview</h2>
+                <div class="preview-grid" id="previewGrid"></div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>All processing is done locally in your browser. No images are uploaded to any server.</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
