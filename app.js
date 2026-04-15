@@ -85,44 +85,11 @@
         { folder: 'drawable-xxxhdpi', size: 96  },
     ];
 
-    // --- iOS Splash Screens ---
-    // Each entry includes metadata for Contents.json:
-    //   orientation, idiom, scale, minimum-system-version, subtype (screen height for iPhones)
-    const IOS_SPLASH = [
-        // Portrait — iPhones
-        { name: 'Default-Portrait-iPhone8.png',        w: 750,  h: 1334,  orientation: 'portrait', idiom: 'iphone', scale: '2x', minVer: '8.0', subtype: '667h' },
-        { name: 'Default-Portrait-iPhone8Plus.png',    w: 1242, h: 2208,  orientation: 'portrait', idiom: 'iphone', scale: '3x', minVer: '8.0', subtype: '736h' },
-        { name: 'Default-Portrait-iPhoneX.png',        w: 1125, h: 2436,  orientation: 'portrait', idiom: 'iphone', scale: '3x', minVer: '11.0', subtype: '812h' },
-        { name: 'Default-Portrait-iPhoneXsMax.png',    w: 1242, h: 2688,  orientation: 'portrait', idiom: 'iphone', scale: '3x', minVer: '12.0', subtype: '896h' },
-        { name: 'Default-Portrait-iPhoneXr.png',       w: 828,  h: 1792,  orientation: 'portrait', idiom: 'iphone', scale: '2x', minVer: '12.0', subtype: '896h' },
-        { name: 'Default-Portrait-iPhone12Mini.png',   w: 1080, h: 2340,  orientation: 'portrait', idiom: 'iphone', scale: '3x', minVer: '14.0', subtype: '780h' },
-        { name: 'Default-Portrait-iPhone12.png',       w: 1170, h: 2532,  orientation: 'portrait', idiom: 'iphone', scale: '3x', minVer: '14.0', subtype: '844h' },
-        { name: 'Default-Portrait-iPhone12ProMax.png', w: 1284, h: 2778,  orientation: 'portrait', idiom: 'iphone', scale: '3x', minVer: '14.0', subtype: '926h' },
-        { name: 'Default-Portrait-iPhone14Pro.png',    w: 1179, h: 2556,  orientation: 'portrait', idiom: 'iphone', scale: '3x', minVer: '16.0', subtype: '852h' },
-        { name: 'Default-Portrait-iPhone14ProMax.png', w: 1290, h: 2796,  orientation: 'portrait', idiom: 'iphone', scale: '3x', minVer: '16.0', subtype: '932h' },
-        { name: 'Default-Portrait-iPhone16Pro.png',    w: 1206, h: 2622,  orientation: 'portrait', idiom: 'iphone', scale: '3x', minVer: '18.0', subtype: '874h' },
-        { name: 'Default-Portrait-iPhone16ProMax.png', w: 1320, h: 2868,  orientation: 'portrait', idiom: 'iphone', scale: '3x', minVer: '18.0', subtype: '956h' },
-        // Portrait — iPads
-        { name: 'Default-Portrait-iPad.png',           w: 1536, h: 2048,  orientation: 'portrait', idiom: 'ipad', scale: '2x', minVer: '7.0' },
-        { name: 'Default-Portrait-iPadMini6.png',      w: 1488, h: 2266,  orientation: 'portrait', idiom: 'ipad', scale: '2x', minVer: '15.0' },
-        { name: 'Default-Portrait-iPadAir11.png',      w: 1640, h: 2360,  orientation: 'portrait', idiom: 'ipad', scale: '2x', minVer: '15.0' },
-        { name: 'Default-Portrait-iPadPro10.png',      w: 1668, h: 2224,  orientation: 'portrait', idiom: 'ipad', scale: '2x', minVer: '10.0' },
-        { name: 'Default-Portrait-iPadPro11.png',      w: 1668, h: 2388,  orientation: 'portrait', idiom: 'ipad', scale: '2x', minVer: '12.0' },
-        { name: 'Default-Portrait-iPadPro12.png',      w: 2048, h: 2732,  orientation: 'portrait', idiom: 'ipad', scale: '2x', minVer: '9.0' },
-        { name: 'Default-Portrait-iPadPro13M4.png',    w: 2064, h: 2752,  orientation: 'portrait', idiom: 'ipad', scale: '2x', minVer: '18.0' },
-        // Landscape — iPhones
-        { name: 'Default-Landscape-iPhone8.png',       w: 1334, h: 750,   orientation: 'landscape', idiom: 'iphone', scale: '2x', minVer: '8.0', subtype: '667h' },
-        { name: 'Default-Landscape-iPhone8Plus.png',   w: 2208, h: 1242,  orientation: 'landscape', idiom: 'iphone', scale: '3x', minVer: '8.0', subtype: '736h' },
-        { name: 'Default-Landscape-iPhoneX.png',       w: 2436, h: 1125,  orientation: 'landscape', idiom: 'iphone', scale: '3x', minVer: '11.0', subtype: '812h' },
-        { name: 'Default-Landscape-iPhone12.png',      w: 2532, h: 1170,  orientation: 'landscape', idiom: 'iphone', scale: '3x', minVer: '14.0', subtype: '844h' },
-        { name: 'Default-Landscape-iPhone14Pro.png',   w: 2556, h: 1179,  orientation: 'landscape', idiom: 'iphone', scale: '3x', minVer: '16.0', subtype: '852h' },
-        { name: 'Default-Landscape-iPhone16ProMax.png',w: 2868, h: 1320,  orientation: 'landscape', idiom: 'iphone', scale: '3x', minVer: '18.0', subtype: '956h' },
-        // Landscape — iPads
-        { name: 'Default-Landscape-iPad.png',          w: 2048, h: 1536,  orientation: 'landscape', idiom: 'ipad', scale: '2x', minVer: '7.0' },
-        { name: 'Default-Landscape-iPadAir11.png',     w: 2360, h: 1640,  orientation: 'landscape', idiom: 'ipad', scale: '2x', minVer: '15.0' },
-        { name: 'Default-Landscape-iPadPro11.png',     w: 2388, h: 1668,  orientation: 'landscape', idiom: 'ipad', scale: '2x', minVer: '12.0' },
-        { name: 'Default-Landscape-iPadPro12.png',     w: 2732, h: 2048,  orientation: 'landscape', idiom: 'ipad', scale: '2x', minVer: '9.0' },
-        { name: 'Default-Landscape-iPadPro13M4.png',   w: 2752, h: 2064,  orientation: 'landscape', idiom: 'ipad', scale: '2x', minVer: '18.0' },
+    // --- iOS Launch Logo (for LaunchScreen.storyboard) ---
+    const IOS_LAUNCH_LOGO = [
+        { name: 'LaunchLogo@1x.png',  size: 200, scale: '1x' },
+        { name: 'LaunchLogo@2x.png',  size: 400, scale: '2x' },
+        { name: 'LaunchLogo@3x.png',  size: 600, scale: '3x' },
     ];
 
     // --- Android Splash Screens ---
@@ -215,7 +182,7 @@
         if (assets.includes('android-icons'))  count += ANDROID_DENSITIES.length * 2; // launcher + round
         if (assets.includes('android-mono'))   count += ANDROID_DENSITIES.length;     // monochrome layers
         if (assets.includes('android-notif'))  count += ANDROID_NOTIFICATION.length;  // notification icons
-        if (assets.includes('ios-splash'))     count += IOS_SPLASH.length;
+        if (assets.includes('ios-splash'))     count += IOS_LAUNCH_LOGO.length;
         if (assets.includes('android-splash')) count += ANDROID_SPLASH.length;
         if (assets.includes('favicon'))        count += FAVICON_SIZES.length;
         if (assets.includes('store'))          count += 2;
@@ -572,25 +539,62 @@
     }
 
     // ============================================================
-    //  CONTENTS.JSON for LaunchImage
+    //  iOS LAUNCH SCREEN (modern)
     // ============================================================
 
-    function buildLaunchImageContentsJson() {
-        const images = IOS_SPLASH.map(splash => {
-            const entry = {
-                filename: splash.name,
-                idiom: splash.idiom,
-                orientation: splash.orientation,
-                scale: splash.scale,
-                extent: 'full-screen',
-                'minimum-system-version': splash.minVer,
-            };
-            if (splash.subtype) {
-                entry.subtype = splash.subtype;
-            }
-            return entry;
-        });
+    function buildLaunchLogoContentsJson() {
+        const images = IOS_LAUNCH_LOGO.map(item => ({
+            filename: item.name,
+            idiom: 'universal',
+            scale: item.scale,
+        }));
         return JSON.stringify({ images, info: { author: 'xcode', version: 1 } }, null, 2);
+    }
+
+    function buildLaunchScreenStoryboard(bgHex) {
+        const r = parseInt(bgHex.slice(1, 3), 16) / 255;
+        const g = parseInt(bgHex.slice(3, 5), 16) / 255;
+        const b = parseInt(bgHex.slice(5, 7), 16) / 255;
+        return `<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="AppleSDK" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="YRO-k0-Ew4">
+                                <rect key="frame" x="96.5" y="326" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="W0h-LS-l0r"/>
+                                    <constraint firstAttribute="height" constant="200" id="Hgt-LS-l0r"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="${r}" green="${g}" blue="${b}" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="YRO-k0-Ew4" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="CX0-lr-l0r"/>
+                            <constraint firstItem="YRO-k0-Ew4" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="CY0-lr-l0r"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="LaunchLogo" width="200" height="200"/>
+    </resources>
+</document>`;
     }
 
     // ============================================================
@@ -639,7 +643,7 @@
         else if (hasMono)                      total += 1;
         if (hasMono)                           total += ANDROID_DENSITIES.length;
         if (assets.includes('android-notif'))  total += ANDROID_NOTIFICATION.length;
-        if (assets.includes('ios-splash'))     total += IOS_SPLASH.length;
+        if (assets.includes('ios-splash'))     total += IOS_LAUNCH_LOGO.length;
         if (assets.includes('android-splash')) total += ANDROID_SPLASH.length;
         if (assets.includes('favicon'))        total += FAVICON_SIZES.length + 2; // +favicon.ico +manifest
         if (assets.includes('store'))          total += 2;
@@ -752,17 +756,20 @@
                 }
             }
 
-            // --- iOS Splash ---
+            // --- iOS Splash (LaunchScreen.storyboard + LaunchLogo) ---
             if (assets.includes('ios-splash')) {
-                const folder = zip.folder('ios').folder('LaunchImage.launchimage');
-                folder.file('Contents.json', buildLaunchImageContentsJson());
+                const iosFolder = zip.folder('ios');
+                iosFolder.file('LaunchScreen.storyboard', buildLaunchScreenStoryboard(bg));
 
-                for (const splash of IOS_SPLASH) {
-                    const canvas = createSplash(sourceImage, splash.w, splash.h, bg, scale);
+                const logoFolder = iosFolder.folder('LaunchLogo.imageset');
+                logoFolder.file('Contents.json', buildLaunchLogoContentsJson());
+
+                for (const logo of IOS_LAUNCH_LOGO) {
+                    const canvas = resizeToSquare(sourceImage, logo.size);
                     const blob = await canvasToBlob(canvas);
-                    folder.file(splash.name, blob);
-                    previews.push({ name: splash.name, size: `${splash.w}x${splash.h}`, canvas });
-                    tick(splash.name);
+                    logoFolder.file(logo.name, blob);
+                    previews.push({ name: logo.name, size: `${logo.size}px`, canvas });
+                    tick(logo.name);
                 }
             }
 
@@ -779,7 +786,7 @@
                 }
             }
 
-            // --- Android values & values-night (colors only) ---
+            // --- Android values & values-night ---
             if (assets.includes('android-icons') || assets.includes('android-splash') || hasMono) {
                 const resFolder = zip.folder('android').folder('res');
 
@@ -797,6 +804,19 @@
 <resources>
     <color name="ic_launcher_background">${iconBgDark}</color>
     <color name="splash_background">${bgDark}</color>
+</resources>`);
+
+                // values/styles.xml (SplashScreen API)
+                resFolder.folder('values').file('styles.xml',
+`<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Requires: implementation("androidx.core:core-splashscreen:1.0.1") -->
+    <!-- Apply android:theme="@style/Theme.App.SplashScreen" to your launcher activity -->
+    <style name="Theme.App.SplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/splash_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <item name="postSplashScreenTheme">@style/Theme.App</item>
+    </style>
 </resources>`);
             }
 
