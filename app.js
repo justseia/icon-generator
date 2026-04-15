@@ -810,8 +810,8 @@
                 resFolder.folder('values').file('styles.xml',
 `<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Requires: implementation("androidx.core:core-splashscreen:1.0.1") -->
-    <!-- Apply android:theme="@style/Theme.App.SplashScreen" to your launcher activity -->
+    <!-- Add to app/build.gradle: implementation("androidx.core:core-splashscreen:1.0.1") -->
+    <!-- Add to AndroidManifest.xml: android:theme="@style/Theme.App.SplashScreen" on your launcher activity -->
     <style name="Theme.App.SplashScreen" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/splash_background</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
