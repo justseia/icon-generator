@@ -378,9 +378,26 @@ body {
     border: 1px solid rgba(0,0,0,0.1);
 }
 
-.preset-name {
+.preset-values {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    min-width: 0;
+}
+
+.preset-light {
     font-size: 11px;
-    color: var(--text-muted);
+    font-family: monospace;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.preset-dark {
+    font-size: 10px;
+    font-family: monospace;
+    color: var(--text-dim);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

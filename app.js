@@ -231,11 +231,10 @@
 
     function getCurrentSettings() {
         return {
-            bg: bgColor.value,
-            iconBg: iconBgColor.value,
-            bgDark: bgColorDark.value,
-            iconBgDark: iconBgColorDark.value,
-            scale: parseInt(logoScale.value, 10),
+            bg: bgColorText.value,
+            iconBg: iconBgColorText.value,
+            bgDark: bgColorDarkText.value,
+            iconBgDark: iconBgColorDarkText.value,
         };
     }
 
@@ -248,8 +247,6 @@
         bgColorDarkText.value = preset.bgDark;
         iconBgColorDark.value = preset.iconBgDark;
         iconBgColorDarkText.value = preset.iconBgDark;
-        logoScale.value = preset.scale;
-        logoScaleValue.textContent = preset.scale + '%';
     }
 
     function renderPresets() {
@@ -258,15 +255,15 @@
         presets.forEach((p, i) => {
             const chip = document.createElement('div');
             chip.className = 'preset-chip';
-            chip.title = `Light: ${p.bg}, ${p.iconBg}\nDark: ${p.bgDark}, ${p.iconBgDark}\nScale: ${p.scale}%`;
             chip.innerHTML =
                 `<div class="preset-colors">` +
                     `<span class="preset-dot" style="background:${p.bg}"></span>` +
                     `<span class="preset-dot" style="background:${p.iconBg}"></span>` +
-                    `<span class="preset-dot" style="background:${p.bgDark}"></span>` +
-                    `<span class="preset-dot" style="background:${p.iconBgDark}"></span>` +
                 `</div>` +
-                `<span class="preset-name">${p.name}</span>` +
+                `<span class="preset-values">` +
+                    `<span class="preset-light">${p.bg} / ${p.iconBg}</span>` +
+                    `<span class="preset-dark">${p.bgDark} / ${p.iconBgDark}</span>` +
+                `</span>` +
                 `<button class="preset-delete" title="Delete">&times;</button>`;
 
             chip.querySelector('.preset-delete').addEventListener('click', (e) => {
@@ -288,10 +285,8 @@
 
     savePresetBtn.addEventListener('click', () => {
         const settings = getCurrentSettings();
-        const name = prompt('Preset name:', `${settings.bg} / ${settings.iconBg}`);
-        if (!name) return;
         const presets = loadPresets();
-        presets.push({ ...settings, name });
+        presets.push(settings);
         savePresets(presets);
         renderPresets();
     });
