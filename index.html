@@ -167,7 +167,14 @@
 
                 <!-- Splash & Theme options -->
                 <div class="splash-options" id="splashOptions">
-                    <h3>Colors & Splash Options</h3>
+                    <div class="presets-header">
+                        <h3>Colors & Splash Options</h3>
+                        <button class="btn-save-preset" id="savePresetBtn" title="Save current settings as preset">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1V13M1 7H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                            Save
+                        </button>
+                    </div>
+                    <div class="presets-list" id="presetsList"></div>
                     <div class="splash-config">
                         <div class="config-group-label">Light Theme</div>
                         <div class="config-row">

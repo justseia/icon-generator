@@ -212,6 +212,92 @@
         logoScaleValue.textContent = logoScale.value + '%';
     });
 
+    // ============================================================
+    //  COLOR PRESETS (localStorage)
+    // ============================================================
+
+    const PRESETS_KEY = 'appAssetGen_colorPresets';
+    const savePresetBtn = document.getElementById('savePresetBtn');
+    const presetsList   = document.getElementById('presetsList');
+
+    function loadPresets() {
+        try { return JSON.parse(localStorage.getItem(PRESETS_KEY)) || []; }
+        catch { return []; }
+    }
+
+    function savePresets(presets) {
+        localStorage.setItem(PRESETS_KEY, JSON.stringify(presets));
+    }
+
+    function getCurrentSettings() {
+        return {
+            bg: bgColor.value,
+            iconBg: iconBgColor.value,
+            bgDark: bgColorDark.value,
+            iconBgDark: iconBgColorDark.value,
+            scale: parseInt(logoScale.value, 10),
+        };
+    }
+
+    function applyPreset(preset) {
+        bgColor.value = preset.bg;
+        bgColorText.value = preset.bg;
+        iconBgColor.value = preset.iconBg;
+        iconBgColorText.value = preset.iconBg;
+        bgColorDark.value = preset.bgDark;
+        bgColorDarkText.value = preset.bgDark;
+        iconBgColorDark.value = preset.iconBgDark;
+        iconBgColorDarkText.value = preset.iconBgDark;
+        logoScale.value = preset.scale;
+        logoScaleValue.textContent = preset.scale + '%';
+    }
+
+    function renderPresets() {
+        const presets = loadPresets();
+        presetsList.innerHTML = '';
+        presets.forEach((p, i) => {
+            const chip = document.createElement('div');
+            chip.className = 'preset-chip';
+            chip.title = `Light: ${p.bg}, ${p.iconBg}\nDark: ${p.bgDark}, ${p.iconBgDark}\nScale: ${p.scale}%`;
+            chip.innerHTML =
+                `<div class="preset-colors">` +
+                    `<span class="preset-dot" style="background:${p.bg}"></span>` +
+                    `<span class="preset-dot" style="background:${p.iconBg}"></span>` +
+                    `<span class="preset-dot" style="background:${p.bgDark}"></span>` +
+                    `<span class="preset-dot" style="background:${p.iconBgDark}"></span>` +
+                `</div>` +
+                `<span class="preset-name">${p.name}</span>` +
+                `<button class="preset-delete" title="Delete">&times;</button>`;
+
+            chip.querySelector('.preset-delete').addEventListener('click', (e) => {
+                e.stopPropagation();
+                const list = loadPresets();
+                list.splice(i, 1);
+                savePresets(list);
+                renderPresets();
+            });
+
+            chip.addEventListener('click', (e) => {
+                if (e.target.closest('.preset-delete')) return;
+                applyPreset(p);
+            });
+
+            presetsList.appendChild(chip);
+        });
+    }
+
+    savePresetBtn.addEventListener('click', () => {
+        const settings = getCurrentSettings();
+        const name = prompt('Preset name:', `${settings.bg} / ${settings.iconBg}`);
+        if (!name) return;
+        const presets = loadPresets();
+        presets.push({ ...settings, name });
+        savePresets(presets);
+        renderPresets();
+    });
+
+    renderPresets();
+
     // Monochrome controls
     monoThreshold.addEventListener('input', () => {
         monoThresholdValue.textContent = monoThreshold.value;

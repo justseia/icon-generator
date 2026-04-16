@@ -307,8 +307,106 @@ body {
 .splash-options h3 {
     font-size: 14px;
     font-weight: 600;
-    margin-bottom: 12px;
     color: #111111;
+}
+
+/* ===== Presets ===== */
+.presets-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.btn-save-preset {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px;
+    background: linear-gradient(135deg, #2563eb, #06b6d4);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: opacity 0.2s;
+}
+
+.btn-save-preset:hover { opacity: 0.85; }
+
+.presets-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.presets-list:empty {
+    display: none;
+}
+
+.preset-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    max-width: 220px;
+}
+
+.preset-chip:hover {
+    border-color: var(--accent);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.12);
+}
+
+.preset-colors {
+    display: flex;
+    gap: 2px;
+    flex-shrink: 0;
+}
+
+.preset-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.preset-name {
+    font-size: 11px;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.preset-delete {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: none;
+    color: #999;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 0;
+    line-height: 1;
+    transition: all 0.2s;
+}
+
+.preset-delete:hover {
+    color: var(--red);
+    background: rgba(244, 63, 94, 0.1);
 }
 
 .splash-config {
