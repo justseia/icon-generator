@@ -45,26 +45,27 @@
     // Filenames follow Xcode convention: unique per entry, idiom resolved via Contents.json
     const IOS_ICONS = [
         // iPhone
-        { name: 'iPhone-Notification@2x.png',  size: 40,   idiom: 'iphone', scale: '2x', sizeStr: '20x20' },
-        { name: 'iPhone-Notification@3x.png',  size: 60,   idiom: 'iphone', scale: '3x', sizeStr: '20x20' },
-        { name: 'iPhone-Settings@2x.png',      size: 58,   idiom: 'iphone', scale: '2x', sizeStr: '29x29' },
-        { name: 'iPhone-Settings@3x.png',      size: 87,   idiom: 'iphone', scale: '3x', sizeStr: '29x29' },
-        { name: 'iPhone-Spotlight@2x.png',     size: 80,   idiom: 'iphone', scale: '2x', sizeStr: '40x40' },
-        { name: 'iPhone-Spotlight@3x.png',     size: 120,  idiom: 'iphone', scale: '3x', sizeStr: '40x40' },
-        { name: 'iPhone-App@2x.png',           size: 120,  idiom: 'iphone', scale: '2x', sizeStr: '60x60' },
-        { name: 'iPhone-App@3x.png',           size: 180,  idiom: 'iphone', scale: '3x', sizeStr: '60x60' },
+        { name: 'Icon-App-20x20@2x.png',      size: 40,   idiom: 'iphone', scale: '2x', sizeStr: '20x20' },
+        { name: 'Icon-App-20x20@3x.png',      size: 60,   idiom: 'iphone', scale: '3x', sizeStr: '20x20' },
+        { name: 'Icon-App-29x29@1x.png',      size: 29,   idiom: 'iphone', scale: '1x', sizeStr: '29x29' },
+        { name: 'Icon-App-29x29@2x.png',      size: 58,   idiom: 'iphone', scale: '2x', sizeStr: '29x29' },
+        { name: 'Icon-App-29x29@3x.png',      size: 87,   idiom: 'iphone', scale: '3x', sizeStr: '29x29' },
+        { name: 'Icon-App-40x40@2x.png',      size: 80,   idiom: 'iphone', scale: '2x', sizeStr: '40x40' },
+        { name: 'Icon-App-40x40@3x.png',      size: 120,  idiom: 'iphone', scale: '3x', sizeStr: '40x40' },
+        { name: 'Icon-App-60x60@2x.png',      size: 120,  idiom: 'iphone', scale: '2x', sizeStr: '60x60' },
+        { name: 'Icon-App-60x60@3x.png',      size: 180,  idiom: 'iphone', scale: '3x', sizeStr: '60x60' },
         // iPad
-        { name: 'iPad-Notification@1x.png',    size: 20,   idiom: 'ipad', scale: '1x', sizeStr: '20x20' },
-        { name: 'iPad-Notification@2x.png',    size: 40,   idiom: 'ipad', scale: '2x', sizeStr: '20x20' },
-        { name: 'iPad-Settings@1x.png',        size: 29,   idiom: 'ipad', scale: '1x', sizeStr: '29x29' },
-        { name: 'iPad-Settings@2x.png',        size: 58,   idiom: 'ipad', scale: '2x', sizeStr: '29x29' },
-        { name: 'iPad-Spotlight@1x.png',       size: 40,   idiom: 'ipad', scale: '1x', sizeStr: '40x40' },
-        { name: 'iPad-Spotlight@2x.png',       size: 80,   idiom: 'ipad', scale: '2x', sizeStr: '40x40' },
-        { name: 'iPad-App@1x.png',             size: 76,   idiom: 'ipad', scale: '1x', sizeStr: '76x76' },
-        { name: 'iPad-App@2x.png',             size: 152,  idiom: 'ipad', scale: '2x', sizeStr: '76x76' },
-        { name: 'iPad-ProApp@2x.png',          size: 167,  idiom: 'ipad', scale: '2x', sizeStr: '83.5x83.5' },
+        { name: 'Icon-App-20x20@1x.png',      size: 20,   idiom: 'ipad', scale: '1x', sizeStr: '20x20' },
+        { name: 'Icon-App-20x20@2x.png',      size: 40,   idiom: 'ipad', scale: '2x', sizeStr: '20x20' },
+        { name: 'Icon-App-29x29@1x.png',      size: 29,   idiom: 'ipad', scale: '1x', sizeStr: '29x29' },
+        { name: 'Icon-App-29x29@2x.png',      size: 58,   idiom: 'ipad', scale: '2x', sizeStr: '29x29' },
+        { name: 'Icon-App-40x40@1x.png',      size: 40,   idiom: 'ipad', scale: '1x', sizeStr: '40x40' },
+        { name: 'Icon-App-40x40@2x.png',      size: 80,   idiom: 'ipad', scale: '2x', sizeStr: '40x40' },
+        { name: 'Icon-App-76x76@1x.png',      size: 76,   idiom: 'ipad', scale: '1x', sizeStr: '76x76' },
+        { name: 'Icon-App-76x76@2x.png',      size: 152,  idiom: 'ipad', scale: '2x', sizeStr: '76x76' },
+        { name: 'Icon-App-83.5x83.5@2x.png',  size: 167,  idiom: 'ipad', scale: '2x', sizeStr: '83.5x83.5' },
         // App Store
-        { name: 'AppStore-1024@1x.png',        size: 1024, idiom: 'ios-marketing', scale: '1x', sizeStr: '1024x1024' },
+        { name: 'Icon-App-1024x1024@1x.png',  size: 1024, idiom: 'ios-marketing', scale: '1x', sizeStr: '1024x1024' },
     ];
 
     // --- Android Icons ---
@@ -85,20 +86,20 @@
         { folder: 'drawable-xxxhdpi', size: 96  },
     ];
 
-    // --- iOS Launch Logo (for LaunchScreen.storyboard) ---
-    const IOS_LAUNCH_LOGO = [
-        { name: 'LaunchLogo@1x.png',  size: 200, scale: '1x' },
-        { name: 'LaunchLogo@2x.png',  size: 400, scale: '2x' },
-        { name: 'LaunchLogo@3x.png',  size: 600, scale: '3x' },
+    // --- iOS Launch Image (for LaunchScreen.storyboard + imageset) ---
+    const IOS_LAUNCH_IMAGE = [
+        { name: 'LaunchImage.png',    scaleFactor: 1, scale: '1x' },
+        { name: 'LaunchImage@2x.png', scaleFactor: 2, scale: '2x' },
+        { name: 'LaunchImage@3x.png', scaleFactor: 3, scale: '3x' },
     ];
 
-    // --- Android Splash Screens ---
-    const ANDROID_SPLASH = [
-        { folder: 'drawable-mdpi',    w: 320,  h: 480  },
-        { folder: 'drawable-hdpi',    w: 480,  h: 800  },
-        { folder: 'drawable-xhdpi',   w: 720,  h: 1280 },
-        { folder: 'drawable-xxhdpi',  w: 960,  h: 1600 },
-        { folder: 'drawable-xxxhdpi', w: 1280, h: 1920 },
+    // --- Android Splash Logo (for launch_background.xml layer-list) ---
+    const ANDROID_SPLASH_LOGO = [
+        { folder: 'drawable-mdpi',    factor: 1   },
+        { folder: 'drawable-hdpi',    factor: 1.5 },
+        { folder: 'drawable-xhdpi',   factor: 2   },
+        { folder: 'drawable-xxhdpi',  factor: 3   },
+        { folder: 'drawable-xxxhdpi', factor: 4   },
     ];
 
     // --- Favicon ---
@@ -182,8 +183,8 @@
         if (assets.includes('android-icons'))  count += ANDROID_DENSITIES.length * 2; // launcher + round
         if (assets.includes('android-mono'))   count += ANDROID_DENSITIES.length;     // monochrome layers
         if (assets.includes('android-notif'))  count += ANDROID_NOTIFICATION.length;  // notification icons
-        if (assets.includes('ios-splash'))     count += IOS_LAUNCH_LOGO.length;
-        if (assets.includes('android-splash')) count += ANDROID_SPLASH.length;
+        if (assets.includes('ios-splash'))     count += IOS_LAUNCH_IMAGE.length;
+        if (assets.includes('android-splash')) count += ANDROID_SPLASH_LOGO.length;
         if (assets.includes('favicon'))        count += FAVICON_SIZES.length;
         if (assets.includes('store'))          count += 2;
 
@@ -245,38 +246,6 @@
         ctx.closePath();
         ctx.clip();
         ctx.drawImage(img, 0, 0, size, size);
-        return canvas;
-    }
-
-    function createSplash(img, w, h, bg, scale) {
-        const canvas = document.createElement('canvas');
-        canvas.width = w;
-        canvas.height = h;
-        const ctx = canvas.getContext('2d');
-        ctx.imageSmoothingEnabled = true;
-        ctx.imageSmoothingQuality = 'high';
-
-        // Background
-        ctx.fillStyle = bg;
-        ctx.fillRect(0, 0, w, h);
-
-        // Center logo
-        const minDim = Math.min(w, h);
-        const logoSize = Math.round(minDim * (scale / 100));
-        const srcW = img.naturalWidth;
-        const srcH = img.naturalHeight;
-        const aspect = srcW / srcH;
-        let drawW, drawH;
-        if (aspect >= 1) {
-            drawW = logoSize;
-            drawH = Math.round(logoSize / aspect);
-        } else {
-            drawH = logoSize;
-            drawW = Math.round(logoSize * aspect);
-        }
-        const x = Math.round((w - drawW) / 2);
-        const y = Math.round((h - drawH) / 2);
-        ctx.drawImage(img, x, y, drawW, drawH);
         return canvas;
     }
 
@@ -539,11 +508,11 @@
     }
 
     // ============================================================
-    //  iOS LAUNCH SCREEN (modern)
+    //  iOS LAUNCH SCREEN (LaunchImage.imageset + storyboard)
     // ============================================================
 
-    function buildLaunchLogoContentsJson() {
-        const images = IOS_LAUNCH_LOGO.map(item => ({
+    function buildLaunchImageContentsJson() {
+        const images = IOS_LAUNCH_IMAGE.map(item => ({
             filename: item.name,
             idiom: 'universal',
             scale: item.scale,
@@ -555,34 +524,31 @@
         const r = parseInt(bgHex.slice(1, 3), 16) / 255;
         const g = parseInt(bgHex.slice(3, 5), 16) / 255;
         const b = parseInt(bgHex.slice(5, 7), 16) / 255;
-        return `<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="AppleSDK" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+        return `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ydg-fD-yQy"/>
+                        <viewControllerLayoutGuide type="bottom" id="xbc-2k-c8Z"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="YRO-k0-Ew4">
-                                <rect key="frame" x="96.5" y="326" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="W0h-LS-l0r"/>
-                                    <constraint firstAttribute="height" constant="200" id="Hgt-LS-l0r"/>
-                                </constraints>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="YRO-k0-Ey4">
                             </imageView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="${r}" green="${g}" blue="${b}" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="YRO-k0-Ew4" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="CX0-lr-l0r"/>
-                            <constraint firstItem="YRO-k0-Ew4" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="CY0-lr-l0r"/>
+                            <constraint firstItem="YRO-k0-Ey4" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="1a2-6s-vTC"/>
+                            <constraint firstItem="YRO-k0-Ey4" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="4X2-HB-R7a"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -592,7 +558,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchLogo" width="200" height="200"/>
+        <image name="LaunchImage" width="168" height="185"/>
     </resources>
 </document>`;
     }
@@ -643,8 +609,8 @@
         else if (hasMono)                      total += 1;
         if (hasMono)                           total += ANDROID_DENSITIES.length;
         if (assets.includes('android-notif'))  total += ANDROID_NOTIFICATION.length;
-        if (assets.includes('ios-splash'))     total += IOS_LAUNCH_LOGO.length;
-        if (assets.includes('android-splash')) total += ANDROID_SPLASH.length;
+        if (assets.includes('ios-splash'))     total += IOS_LAUNCH_IMAGE.length;
+        if (assets.includes('android-splash')) total += ANDROID_SPLASH_LOGO.length;
         if (assets.includes('favicon'))        total += FAVICON_SIZES.length + 2; // +favicon.ico +manifest
         if (assets.includes('store'))          total += 2;
 
@@ -659,21 +625,25 @@
         try {
             // --- iOS Icons ---
             if (assets.includes('ios-icons')) {
-                const folder = zip.folder('ios').folder('AppIcon.appiconset');
+                const folder = zip.folder('ios/Runner/Assets.xcassets/AppIcon.appiconset');
                 folder.file('Contents.json', buildContentsJson());
 
+                const generatedIcons = new Set();
                 for (const icon of IOS_ICONS) {
-                    const canvas = resizeToSquare(sourceImage, icon.size);
-                    const blob = await canvasToBlob(canvas);
-                    folder.file(icon.name, blob);
-                    previews.push({ name: icon.name, size: `${icon.size}px`, canvas });
+                    if (!generatedIcons.has(icon.name)) {
+                        const canvas = resizeToSquare(sourceImage, icon.size);
+                        const blob = await canvasToBlob(canvas);
+                        folder.file(icon.name, blob);
+                        previews.push({ name: icon.name, size: `${icon.size}px`, canvas });
+                        generatedIcons.add(icon.name);
+                    }
                     tick(icon.name);
                 }
             }
 
             // --- Android Icons ---
             if (assets.includes('android-icons')) {
-                const resFolder = zip.folder('android').folder('res');
+                const resFolder = zip.folder('android/app/src/main/res');
 
                 for (const density of ANDROID_DENSITIES) {
                     const f = resFolder.folder(density.folder);
@@ -714,7 +684,7 @@
 
             // --- Android Monochrome / Themed Icons ---
             if (hasMono) {
-                const resFolder = zip.folder('android').folder('res');
+                const resFolder = zip.folder('android/app/src/main/res');
                 const threshold = parseInt(monoThreshold.value, 10);
                 const invert = monoInvert.checked;
 
@@ -743,7 +713,7 @@
 
             // --- Android Notification Icons ---
             if (assets.includes('android-notif')) {
-                const resFolder = zip.folder('android').folder('res');
+                const resFolder = zip.folder('android/app/src/main/res');
                 const threshold = parseInt(monoThreshold.value, 10);
                 const invert = monoInvert.checked;
 
@@ -756,39 +726,70 @@
                 }
             }
 
-            // --- iOS Splash (LaunchScreen.storyboard + LaunchLogo) ---
+            // --- iOS Splash (LaunchScreen.storyboard + LaunchImage.imageset) ---
             if (assets.includes('ios-splash')) {
-                const iosFolder = zip.folder('ios');
-                iosFolder.file('LaunchScreen.storyboard', buildLaunchScreenStoryboard(bg));
+                const iosLogoBasePt = Math.round(390 * scale / 100);
 
-                const logoFolder = iosFolder.folder('LaunchLogo.imageset');
-                logoFolder.file('Contents.json', buildLaunchLogoContentsJson());
+                // LaunchImage.imageset
+                const imagesetFolder = zip.folder('ios/Runner/Assets.xcassets/LaunchImage.imageset');
+                imagesetFolder.file('Contents.json', buildLaunchImageContentsJson());
 
-                for (const logo of IOS_LAUNCH_LOGO) {
-                    const canvas = resizeToSquare(sourceImage, logo.size);
+                for (const img of IOS_LAUNCH_IMAGE) {
+                    const size = iosLogoBasePt * img.scaleFactor;
+                    const canvas = resizeToSquare(sourceImage, size);
                     const blob = await canvasToBlob(canvas);
-                    logoFolder.file(logo.name, blob);
-                    previews.push({ name: logo.name, size: `${logo.size}px`, canvas });
-                    tick(logo.name);
+                    imagesetFolder.file(img.name, blob);
+                    previews.push({ name: img.name, size: `${size}px`, canvas });
+                    tick(img.name);
                 }
+
+                // LaunchScreen.storyboard
+                zip.folder('ios/Runner/Base.lproj').file(
+                    'LaunchScreen.storyboard',
+                    buildLaunchScreenStoryboard(bg)
+                );
             }
 
-            // --- Android Splash ---
+            // --- Android Splash (launch_background.xml + splash_screen per density) ---
             if (assets.includes('android-splash')) {
-                const resFolder = zip.folder('android').folder('res');
-                for (const splash of ANDROID_SPLASH) {
+                const resFolder = zip.folder('android/app/src/main/res');
+                const androidLogoBaseDp = Math.round(360 * scale / 100);
+
+                // drawable/launch_background.xml (layer-list)
+                resFolder.folder('drawable').file('launch_background.xml',
+`<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/splash_background" />
+    <item>
+        <bitmap android:gravity="center" android:src="@drawable/splash_screen" />
+    </item>
+</layer-list>`);
+
+                // drawable-v21/launch_background.xml (API 21+ override)
+                resFolder.folder('drawable-v21').file('launch_background.xml',
+`<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/splash_background" />
+    <item>
+        <bitmap android:gravity="center" android:src="@drawable/splash_screen" />
+    </item>
+</layer-list>`);
+
+                // Splash logo per density
+                for (const splash of ANDROID_SPLASH_LOGO) {
+                    const size = Math.round(androidLogoBaseDp * splash.factor);
                     const f = resFolder.folder(splash.folder);
-                    const canvas = createSplash(sourceImage, splash.w, splash.h, bg, scale);
+                    const canvas = resizeToSquare(sourceImage, size);
                     const blob = await canvasToBlob(canvas);
                     f.file('splash_screen.png', blob);
-                    previews.push({ name: `${splash.folder}/splash_screen.png`, size: `${splash.w}x${splash.h}`, canvas });
+                    previews.push({ name: `${splash.folder}/splash_screen.png`, size: `${size}px`, canvas });
                     tick(`${splash.folder}/splash_screen.png`);
                 }
             }
 
-            // --- Android values & values-night ---
+            // --- Android values & values-night (colors + styles) ---
             if (assets.includes('android-icons') || assets.includes('android-splash') || hasMono) {
-                const resFolder = zip.folder('android').folder('res');
+                const resFolder = zip.folder('android/app/src/main/res');
 
                 // values/colors.xml (light)
                 resFolder.folder('values').file('colors.xml',
@@ -806,16 +807,27 @@
     <color name="splash_background">${bgDark}</color>
 </resources>`);
 
-                // values/styles.xml (SplashScreen API)
+                // values/styles.xml (Flutter LaunchTheme + NormalTheme)
                 resFolder.folder('values').file('styles.xml',
 `<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Add to app/build.gradle: implementation("androidx.core:core-splashscreen:1.0.1") -->
-    <!-- Add to AndroidManifest.xml: android:theme="@style/Theme.App.SplashScreen" on your launcher activity -->
-    <style name="Theme.App.SplashScreen" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">@color/splash_background</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
-        <item name="postSplashScreenTheme">@style/Theme.App</item>
+    <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <item name="android:windowBackground">@drawable/launch_background</item>
+    </style>
+    <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <item name="android:windowBackground">?android:colorBackground</item>
+    </style>
+</resources>`);
+
+                // values-night/styles.xml (dark theme)
+                resFolder.folder('values-night').file('styles.xml',
+`<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="LaunchTheme" parent="@android:style/Theme.Black.NoTitleBar">
+        <item name="android:windowBackground">@drawable/launch_background</item>
+    </style>
+    <style name="NormalTheme" parent="@android:style/Theme.Black.NoTitleBar">
+        <item name="android:windowBackground">?android:colorBackground</item>
     </style>
 </resources>`);
             }
